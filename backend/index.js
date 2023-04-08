@@ -10,7 +10,7 @@ import path from "path";
 
 import multer from "multer";
 
-import { register } from "./controllers/auth_controller.js";
+import { register } from "./controllers/auth.js";
 import auth from "./routes/auth.js";
 
 import mongoose from "mongoose";
