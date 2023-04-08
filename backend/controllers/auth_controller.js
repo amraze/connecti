@@ -34,7 +34,44 @@ export const register = async (request, response) => {
         response.status(201).json(savedUser);
     } catch (error) {
         response.status(500).json({
-            error: error.message
+            error: error.message,
         });
     };
+};
+
+export const login = async (request, response) => {
+    try {
+        const {
+            email,
+            password,
+        } = request.body;
+
+        const user = await User.findOne({ email: email });
+
+        if (!user) {
+            return response.status(404).json({
+                message: 'User does not exist.',
+            });
+        } else {
+            const isMatched = await bcrypt.compare(password, user.password);
+
+            if (!isMatched) {
+                return response.status(404).json({
+                    message: 'Invalid credentials.',
+                });
+            } else {
+                const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+                delete user.password;
+
+                response.status(200).json({
+                    token: token,
+                    user: user,
+                });
+            }
+        }
+    } catch (error) {
+        response.status(500).json({
+            error: error.message,
+        });
+    }
 };
