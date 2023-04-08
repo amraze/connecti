@@ -1,3 +1,4 @@
+// Config
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
@@ -8,6 +9,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
+// Controllers
+import { register } from "./Controllers/AuthController.js";
 
 /* CONFIGURATIONS */
 const __filename = fileURLToPath(import.meta.url)
