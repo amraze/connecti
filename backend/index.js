@@ -9,8 +9,10 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
+// Routes
+
 // Controllers
-import { register } from "./Controllers/AuthController.js";
+import { register } from "./controllers/auth_controller.js";
 
 /* CONFIGURATIONS */
 const __filename = fileURLToPath(import.meta.url)
