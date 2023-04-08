@@ -12,6 +12,7 @@ import multer from "multer";
 
 import { register } from "./controllers/auth.js";
 import auth from "./routes/auth.js";
+import users from "./routes/users.js";
 
 import mongoose from "mongoose";
 
@@ -44,6 +45,7 @@ const upload = multer({ storage });
 app.post("/auth/register", upload.single("picture"), register);
 
 app.use("/auth", auth);
+app.use("/users", users);
 
 
 /* MONGOOSE SETUP */
