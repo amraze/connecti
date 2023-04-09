@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema(
+const postSchema = new mongoose.Schema(
     {
+        userId: {
+            type: String,
+            required: true,
+        },
         firstName: {
             type: String,
             required: true,
@@ -14,34 +18,29 @@ const userSchema = new mongoose.Schema(
             min: 2,
             max: 50,
         },
-        email: {
-            type: String,
-            required: true,
-            unique: true,
-            max: 100,
-        },
-        password: {
-            type: String,
-            required: true,
-            min: 5,
-        },
+        location: String,
+        description: String,
         picture: {
             type: String,
             default: "",
         },
-        friends: {
+        userPicture: {
+            type: String,
+            default: "",
+        },
+        likes: {
+            type: Map,
+            of: Boolean,
+        },
+        comments: {
             type: Array,
             default: [],
-        },
-        location: String,
-        occupation: String,
-        viewedProfile: Number,
-        impressions: Number,
+        }
     },
     {
         timestamps: true,
     }
 );
 
-const User = mongoose.model("User", userSchema);
-export default User;
+const Post = mongoose.model("Post", postSchema);
+export default Post;
