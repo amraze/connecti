@@ -11,8 +11,11 @@ import path from "path";
 import multer from "multer";
 
 import { register } from "./controllers/auth.js";
+import { createPost } from "./controllers/posts.js";
 import auth from "./routes/auth.js";
 import users from "./routes/users.js";
+import posts from "./routes/posts.js";
+import { verifyToken } from "./middleware/auth.js";
 
 import mongoose from "mongoose";
 
@@ -43,9 +46,11 @@ const upload = multer({ storage });
 
 /********************************************** ROUTES **************************************************/
 app.post("/auth/register", upload.single("picture"), register);
+app.post("/posts", verifyToken, upload.single("picture"), createPost);
 
 app.use("/auth", auth);
 app.use("/users", users);
+app.use("/posts", posts);
 
 
 /* MONGOOSE SETUP */
