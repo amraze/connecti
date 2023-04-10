@@ -54,8 +54,7 @@ app.use("/auth", auth);
 app.use("/users", users);
 app.use("/posts", posts);
 
-
-/* MONGOOSE SETUP */
+/********************************************** MONGO **************************************************/
 const PORT = process.env.PORT || 6001;
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
@@ -63,9 +62,6 @@ mongoose.connect(process.env.MONGO_URL, {
 }).then(function () {
     app.listen(PORT, function () {
         console.log(`Server port : ${PORT}`);
-
-        // User.insertMany(dummyUsers);
-        // Post.insertMany(dummyPosts);
     });
 }).catch(function (error) {
     console.log(`${error} did not connect`);
