@@ -19,8 +19,8 @@ export const dummyPosts = [
         lastName: "Ralph",
         location: "New York, CA",
         description: "Some really long random description",
-        picturePath: "post1.jpeg",
-        userPicturePath: "p3.jpeg",
+        picture: "post1.jpeg",
+        userPicture: "p3.jpeg",
         likes: new Map([
             [userIds[0], true],
             [userIds[2], true],
@@ -41,8 +41,8 @@ export const dummyPosts = [
         location: "Korea, CA",
         description:
             "Another really long random description. This one is longer than the previous one.",
-        picturePath: "post2.jpeg",
-        userPicturePath: "p6.jpeg",
+        picture: "post2.jpeg",
+        userPicture: "p6.jpeg",
         likes: new Map([
             [userIds[7], true],
             [userIds[4], true],
@@ -64,8 +64,8 @@ export const dummyPosts = [
         location: "Utah, CA",
         description:
             "This is the last really long random description. This one is longer than the previous one.",
-        picturePath: "post3.jpeg",
-        userPicturePath: "p5.jpeg",
+        picture: "post3.jpeg",
+        userPicture: "p5.jpeg",
         likes: new Map([
             [userIds[1], true],
             [userIds[6], true],
@@ -88,8 +88,8 @@ export const dummyPosts = [
         location: "Los Angeles, CA",
         description:
             "This is the last really long random description. This one is longer than the previous one. Man I'm bored. I'm going to keep typing until I run out of things to say.",
-        picturePath: "post4.jpeg",
-        userPicturePath: "p7.jpeg",
+        picture: "post4.jpeg",
+        userPicture: "p7.jpeg",
         likes: new Map([
             [userIds[1], true],
             [userIds[6], true],
@@ -112,8 +112,8 @@ export const dummyPosts = [
         location: "Chicago, IL",
         description:
             "Just a short description. I'm tired of typing. I'm going to play video games now.",
-        picturePath: "post5.jpeg",
-        userPicturePath: "p8.jpeg",
+        picture: "post5.jpeg",
+        userPicture: "p8.jpeg",
         likes: new Map([
             [userIds[1], true],
             [userIds[3], true],
@@ -136,8 +136,8 @@ export const dummyPosts = [
         location: "Washington, DC",
         description:
             "For the last time, I'm going to play video games now. I'm tired of typing. I'm going to play video games now.",
-        picturePath: "post6.jpeg",
-        userPicturePath: "p9.jpeg",
+        picture: "post6.jpeg",
+        userPicture: "p9.jpeg",
         likes: new Map([
             [userIds[1], true],
             [userIds[2], true],
