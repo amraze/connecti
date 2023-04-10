@@ -12,13 +12,18 @@ import multer from "multer";
 
 import { register } from "./controllers/auth.js";
 import { createPost } from "./controllers/posts.js";
+
 import auth from "./routes/auth.js";
 import users from "./routes/users.js";
 import posts from "./routes/posts.js";
+
 import { verifyToken } from "./middleware/auth.js";
 
 import mongoose from "mongoose";
-
+import { dummyUsers } from "./database/users.js";
+import { dummyPosts } from "./database/posts.js";
+import User from "./models/User.js";
+import Post from "./models/Post.js";
 /****************************************** CONFIGURATIONS **********************************************/
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -61,6 +66,9 @@ mongoose.connect(process.env.MONGO_URL, {
 }).then(function () {
     app.listen(PORT, function () {
         console.log(`Server port : ${PORT}`);
+
+        // User.insertMany(dummyUsers);
+        // Post.insertMany(dummyPosts);
     });
 }).catch(function (error) {
     console.log(`${error} did not connect`);
