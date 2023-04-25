@@ -1,33 +1,34 @@
 import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 import Form from "./form";
+import FlexBetween from '../../components/FlexBetween';
 
 const LoginPage = () => {
-    const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
+    const isNonMobileScreens = useMediaQuery("(min-width: 768px)");
     const theme = useTheme();
     const navigate = useNavigate();
 
-    const neutralLight = theme.palette.neutral.light;
     const alt = theme.palette.background.alt;
 
     return (
-        <Box>
-            <Box width="100%" backgroundColor={alt} p="1rem 6%" textAlign="center">
-                <Typography
-                    fontWeight="bold"
-                    fontSize="32px"
-                    color={theme.palette.mode === "dark" ? "white" : "black"}
-                    onClick={() => navigate("/home")}>
-                    Connecti
-                </Typography>
+
+        <Box display="flex" justifyContent="space-evenly" alignItems="center" height="100vh" flexDirection={isNonMobileScreens ? "row" : "column"} >
+            <Box>
+                <Box component="img" height="10rem" src="/assets/brand.png" alt="Connecti" onClick={() => navigate("/home")} sx={{
+                    "&:hover": {
+                        height: "11rem",
+                        filter: "grayscale(100%)",
+                        cursor: "pointer",
+                        transition: " 1s ",
+                    },
+                }} />
             </Box>
 
-            <Box width={isNonMobileScreens ? "50%" : "93%"} p="2rem" m="2rem auto" borderRadius="1.5rem" backgroundColor={alt}>
-                <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
-                    Welcome to Connecti, the next-generation Tunisian Social Media !
-                </Typography>
-                <Form />
-            </Box>
+            <Box>
+                <Box width="300px" p="2rem" borderRadius="1.5rem" backgroundColor={alt}>
+                    <Form />
+                </Box>
+            </Box >
         </Box >
     )
 }

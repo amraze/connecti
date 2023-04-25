@@ -47,12 +47,12 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 /********************************************** ROUTES **************************************************/
-app.post("/auth/register", upload.single("picture"), register);
+app.post("/api/register", upload.single("picture"), register);
 app.post("/posts", verifyToken, upload.single("picture"), createPost);
 
-app.use("/auth", auth);
-app.use("/users", users);
-app.use("/posts", posts);
+app.use("/api", auth);
+app.use("/api/users", users);
+app.use("/api/posts", posts);
 
 /********************************************** MONGO **************************************************/
 const PORT = process.env.PORT || 6001;
