@@ -62,7 +62,7 @@ const Form = () => {
         }
 
         const savedUserResponse = await fetch(apiURL + "register", {
-            method: "post",
+            method: "POST",
             body: formData,
         });
 

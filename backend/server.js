@@ -48,7 +48,7 @@ const upload = multer({ storage });
 
 /********************************************** ROUTES **************************************************/
 app.post("/api/register", upload.single("picture"), register);
-app.post("/posts", verifyToken, upload.single("picture"), createPost);
+app.post("/api/posts", verifyToken, upload.single("picture"), createPost);
 
 app.use("/api", auth);
 app.use("/api/users", users);
